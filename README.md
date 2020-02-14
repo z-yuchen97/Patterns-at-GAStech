@@ -1,4 +1,4 @@
-# Kronos Incident
+# Patterns at Gastech
 * Thanks to Heming, who helps me do the backend part of this project, and design the website with me.
 
 ## 1. Environment Setting(local machine / Remote Server)
