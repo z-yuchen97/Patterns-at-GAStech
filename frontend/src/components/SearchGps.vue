@@ -9,6 +9,7 @@
         <select v-model="name" class="select" style="width:120px;">
             <option disabled value selected>--Name--</option>
             <option>All Employee</option>
+            <option>Truck Drivers</option>
             <option v-for="(pinfo, index) in personal_info" :key="index">{{pinfo.firstname}} {{pinfo.lastname}}</option>
         </select>
       </div>
@@ -159,9 +160,10 @@ export default {
 
     // async function to wait axios 
     searchRange: async function(){
+      console.log(this.name);
       if(this.start_date == "" ||  this.start_hour == "" || this.start_minute == "" || this.end_date == "" ||this.end_hour == "" ||this.end_minute == ""){
         alert("Please Input Date");
-     }else{
+      }else{
         let start_sec = Number(this.start_date) * 1440 + Number(this.start_hour) * 60 + Number(this.start_minute);
         let end_sec = Number(this.end_date) * 1440 + Number(this.end_hour) * 60 + Number(this.end_minute);
         console.log(start_sec);
@@ -170,14 +172,20 @@ export default {
           alert("Time Search Range is Invalid!");
         }else{
           let time_start = "14-1-" + this.start_date + " " + this.start_hour + ":" + this.start_minute
-        let time_end = "14-1-" + this.end_date + " " + this.end_hour + ":" + this.end_minute
-        console.log(time_start);
-        console.log(time_end);
-        let firstname;
-        let lastname;
-        if(this.name == "All Employee"){
-          firstname = "";
-          lastname = "";
+          let time_end = "14-1-" + this.end_date + " " + this.end_hour + ":" + this.end_minute
+          console.log(time_start);
+          console.log(time_end);
+          let firstname;
+          let lastname;
+          if(this.name == "All Employee"){
+            if( Number(end_sec) - Number(start_sec) >= 2400){
+              return alert("Due to Micro AWS features, cannot support search beyond 40 hours! Sorry for this inconvenience!");
+            }
+            firstname = "";
+            lastname = "";
+        }else if(this.name == "Truck Drivers"){
+          firstname = "Truck Drivers";
+          lastname = "Truck Drivers";
         }else{
           firstname = this.name.split(' ', 1)[0];
           lastname = this.name.slice(this.name.indexOf(' ')+1);
