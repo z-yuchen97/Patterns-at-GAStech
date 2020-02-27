@@ -15,6 +15,11 @@ app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 patterns_conn = "mysql+pymysql://root:Root2021@@127.0.0.1:3306/patterns"
 
+@app.route('/init_text', methods=['GET'])
+def init_text():
+    text = "Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!"
+    return text
+
 @app.route('/init_person', methods=['GET'])
 def init_person():
     engine = create_engine(patterns_conn)

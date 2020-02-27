@@ -4,6 +4,8 @@
       <img width="400px" height="100px"  src = "../../static/img/Kronos.jpg">
     </div>
     <div id="search">
+      <input type="button" value="Show Dialog" @click="showdialog" />
+      <div id="mydialog" title="User Guidance">{{guide_text}}</div>
       <div id="name-search">
         <strong>Name:</strong>
         <select v-model="name" class="select" style="width:120px;">
@@ -99,6 +101,7 @@ export default {
     return {
       personal_info: [],
       time_info: [],
+      guide_text: "",
       gps_info: "",
       card_info: "",
       slot_info: "",
@@ -125,24 +128,16 @@ export default {
           .then(response => (this.personal_info = response.data));
     axios.get("http://52.14.238.110:5000/init_time")
           .then(response => (this.time_info = response.data));
+    axios.get("http://52.14.238.110:5000/init_text")
+          .then(response => (this.guide_text = response.data));
   },
 
   methods: {
 
-    // searchTime: async function(d){
-    //   let time1 = "14-1-" + start_date + " " + d.slot -2 + ":0";
-    //   let time2 = "14-1-" + start_date + " " + d.slot + ":0";
-    //   const res = await axios.get('api/search_gps', {
-    //     params: {
-    //       firstname: "",
-    //       lastname: "",
-    //       time_start: time1,
-    //       time_end: time2
-    //       }
-    //     }
-    //   );
-    //   console.log(1);
-    // },
+    showdialog: function(){
+      $("#mydialog").dialog();
+    },
+
     searchTime: async function(d){
       let time1 = "14-1-" + start_date + " " + d.slot -2 + ":0";
       let time2 = "14-1-" + start_date + " " + d.slot + ":0";
@@ -501,6 +496,10 @@ li {
 }
 a {
   color: #42b983;
+}
+
+#mydialog {
+  display:none 
 }
 
 #headimg {
