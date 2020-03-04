@@ -146,7 +146,7 @@
     </div>
     <div id="productId" >
         <iframe allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" width="600" height="380"
-          src="https://www.youtube.com/embed/NISH4pXTsuw">
+          src="https://www.youtube.com/embed/kvOvDXxF0uU">
         </iframe> 
     </div>
     <div id = "bottom">
