@@ -1,3 +1,5 @@
+import numpy as np
+from random import randint
 from flask import Flask, url_for, redirect, render_template
 from flask import request
 from flask import jsonify
@@ -17,8 +19,35 @@ patterns_conn = "mysql+pymysql://root:Root2021@@127.0.0.1:3306/patterns"
 
 @app.route('/init_text', methods=['GET'])
 def init_text():
-    text = "Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!"
-    return text
+    task1 = ("1.Describe common daily routines for GAStech employees at "
+    "morning(7-9AM) and evening(5-7AM), try to find their living area.")
+    task2 = ("2.Identify some unusual events or patterns that you see "
+    "from the data(as much as you can)")
+    para1 = ("Many of the Abila, Kronos-based employees of GAStech have company cars " 
+    "that are approved for both personal and business use. "
+    "Those who do not have company cars have the ability to check out company trucks "
+    "for business use, but these trucks cannot be used for personal business.")
+    para2 = ("Employees with company cars are happy to have these vehicles because "
+    "the company cars are generally much higher quality than the cars they would be "
+    "able to afford otherwise. However, GAStech does not trust their employees. "
+    "Without the employees’ knowledge, GAStech has installed geospatial tracking "
+    "software in the company vehicles. The vehicles are tracked periodically as "
+    "long as they are moving.")
+    para3 = ("This vehicle tracking data has been made available to law enforcement "
+    "to support their investigation. Unfortunately, data is not available for the day "
+    "the GAStech employees went missing. Data is only available for the two weeks "
+    "prior to the disappearance.")
+    para4 = ("In addition to the vehicle data, law enforcement has been given access "
+    "to the personal and business credit and debit card transactions for the local "
+    "GAStech employees for the two weeks preceding the kidnapping. Many of the GAStech "
+    "employees also use loyalty cards to gain discounts or extra benefits at the businesses "
+    "they patronize, and law enforcement has been given access to two weeks of this loyalty "
+    "card data as well.")
+    paragraph = {"task1": task1, "task2": task2,
+        "para1": para1,"para2": para2,
+        "para3": para3,"para4": para4
+    }
+    return paragraph
 
 @app.route('/init_person', methods=['GET'])
 def init_person():
@@ -33,7 +62,8 @@ def init_person():
     for result in result_list:
         personal_info = {"carid": result.carid,
                     "firstname" : result.firstname,
-                    "lastname" : result.lastname}
+                    "lastname" : result.lastname,
+                    "color": '#%06X' % randint(0, 0xFFFFFF)}
         personal_info_list.append(personal_info)
     return jsonify(personal_info_list)
 
