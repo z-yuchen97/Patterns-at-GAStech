@@ -3,7 +3,7 @@
 * Alnalytic Tools: Flask; Vue; d3.js; 
 * About **100** hours on development and deployment of this project
 * Our Kronos-Incident Visualized Systems [Website Link](http://52.14.238.110/kronos/)
-* Click [**here**](https://www.youtube.com/watch?v=NISH4pXTsuw&feature=youtu.be) to check the demo video.
+* Click [**here**](https://www.youtube.com/watch?v=kvOvDXxF0uU) to check the demo video.
 
 ## 1. Environment Setting(local machine / Remote Server)
 * Local Machine: macOS Catalina 10.15.3

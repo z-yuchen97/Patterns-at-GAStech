@@ -17,6 +17,7 @@
         {{guide_text.task2}}<br><br>
       </div>
       <button class = "btn" style="color:black;" @click="showvideo">Video Link</button>
+      <a href = "http://52.14.238.110/kronos"> <button class = "btn" style="color:black;">13 Inch Interface</button></a>
     </div>
     <div id = "control">
       <input type="button" id = "start" class = "btn" value="Start Logging" @click="record_start" />
@@ -588,8 +589,8 @@ export default {
         delete_svg.remove();
       }
       //Create SVG element
-      let w = 864;
-      let h = 432;
+      let w = 960;
+      let h = 480;
       let svg = d3.select("#point")
                   .append("svg")
                   .attr("width", w)
@@ -758,9 +759,9 @@ a {
 #namebar {
   top: 240px;
   position: absolute;
-  left: 1%;
-  height: 432px;
-  width: 13%;
+  left: 5%;
+  height: 480px;
+  width: 11%;
   overflow: auto;
   border: 1px solid black;
   border-radius: 2px;
@@ -769,9 +770,9 @@ a {
 #trackbar {
   top: 240px;
   position: absolute;
-  right: 1%;
-  height: 432px;
-  width: 13%;
+  right: 5%;
+  height: 480px;
+  width: 11%;
   overflow: auto;
   border: 1px solid black;
   border-radius: 2px;
@@ -786,11 +787,11 @@ a {
 
 
 #map {
-  background-size: 877px 459px;
+  background-size: 955px 510px;
   background-repeat: no-repeat;
   opacity: 0.7;
-  width: 864px;
-  height: 504px;
+  width: 960px;
+  height: 560px;
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -801,8 +802,8 @@ a {
 }
 
 #point {
-  width: 864px;
-  height: 432px;
+  width: 960px;
+  height: 480px;
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -813,8 +814,8 @@ a {
 }
 
 #personalpoint {
-  width: 864px;
-  height: 432px;
+  width: 960px;
+  height: 480px;
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -826,9 +827,9 @@ a {
 
 #card {
   position: absolute;
-  right: 2%;
+  right: 12%;
   height: 320px;
-  top: 730px;
+  top: 780px;
   width: 550px;
   overflow: auto;
   border: 1px solid black;
@@ -839,19 +840,19 @@ a {
 #histogram {
   position: absolute;
   height: 320px;
-  top: 730px;
+  top: 780px;
   width: 600px;
   border: 1px solid black;
   border-radius: 2px;
-  left: 2%;
+  left: 12%;
   /* font-size: 12px; */
 }
 
 #wordcloud {
   position: absolute;
-  right: 2%;
+  right: 12%;
   height: 380px;
-  top: 1090px;
+  top: 1140px;
   width: 550px;
   overflow: auto;
   border: 1px solid black;
@@ -861,8 +862,8 @@ a {
 
 #productId {
   position: absolute;
-  left: 2%;
-  top: 1090px;
+  left: 12%;
+  top: 1140px;
 }
 
 #bottom {
